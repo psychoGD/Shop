@@ -67,12 +67,19 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="UserControls\AddProduct.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserControls\Products.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="UserControls\AddProduct.xaml.cs">
+      <DependentUpon>AddProduct.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\Products.xaml.cs">
       <DependentUpon>Products.xaml</DependentUpon>
     </Compile>
@@ -106,6 +113,21 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="images\logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\Table-PNG-File.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\Add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="UserControls\backGround.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="UserControls\back.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -9,6 +9,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Effects;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
@@ -23,6 +24,12 @@ namespace WpfApp1
         public MainWindow()
         {
             InitializeComponent();
+            Products products = new Products();
+            products.ProductName.Content = "Table";
+            products.ProductPrice.Content = "57";
+            //products.ProductImage.Source = ;
+            
+
         }
         
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -41,6 +48,46 @@ namespace WpfApp1
             
             var sender2 = sender as Button;
             sender2.Foreground = Brushes.Black;
+        }
+
+        private void CloseButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void Grid_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            DragMove();
+        }
+
+        private void SearchTxtBox_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (SearchTxtBox.Text.Length <= 0)
+            {
+                SearchTxtBox.Text = "Search Product";
+                SearchTxtBox.Foreground = Brushes.Gray;
+            }
+        }
+
+        private void SearchTxtBox_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (SearchTxtBox.Text == "Search Product")
+            {
+                var sender2 = sender as TextBox;
+                sender2.Text = "";
+                sender2.Foreground = Brushes.Black;
+            }
+        }
+
+        private void AddProductButton_Click(object sender, RoutedEventArgs e)
+        {
+            SecondMainGrid.Effect = new BlurEffect();
+
+            UserControls.AddProduct addProduct = new UserControls.AddProduct();
+            addProduct.Width = 400;
+            addProduct.Height = 300;
+            this.MainGrid.Children.Add(addProduct);
+
         }
     }
 }
