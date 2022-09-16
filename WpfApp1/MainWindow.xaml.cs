@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,6 +14,7 @@ using System.Windows.Media.Effects;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfApp1.Entities;
 
 namespace WpfApp1
 {
@@ -21,17 +23,21 @@ namespace WpfApp1
     /// </summary>
     public partial class MainWindow : Window
     {
+        public ObservableCollection<Products> Products { get; set; }=new ObservableCollection<Products>(){ };
+
         public MainWindow()
         {
             InitializeComponent();
-            Products products = new Products();
-            products.ProductName.Content = "Table";
-            products.ProductPrice.Content = "57";
-            //products.ProductImage.Source = ;
-            
-
+            this.DataContext = this;
+            Products product = new Products();
+            product.Pname = "Table";
+            product.Pprice = "12";
+            product.Pimg = new BitmapImage(new Uri(@"C:\Users\Huseyn\source\repos\WpfApp1\WpfApp1\images\Table-PNG-File.png"));
+            Products.Add(product);
         }
-        
+
+
+
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             foreach (var item in LeftMenu_WrapPanel.Children)
@@ -89,5 +95,7 @@ namespace WpfApp1
             this.MainGrid.Children.Add(addProduct);
 
         }
+
+       
     }
 }

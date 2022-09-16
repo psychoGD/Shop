@@ -3,11 +3,9 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
         Title="MainWindow" Height="600" Width="800" WindowStyle="None">
     <Grid Background="#E7EDEF" Name="MainGrid">
-        
         <Grid x:Name="SecondMainGrid">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"></RowDefinition>
@@ -69,7 +67,7 @@
                     <ColumnDefinition Width="6*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
                 <Grid Name="LeftMenu_Grid" >
-                    <WrapPanel Name="LeftMenu_WrapPanel">
+                    <WrapPanel Name="LeftMenu_WrapPanel" >
                         <Label Margin="10,0,10,0" Content="Products" FontWeight="Bold"  FontSize="20"></Label>
                         <Button FontSize="20" 
                             Content="All"
@@ -148,12 +146,19 @@
                     </WrapPanel>
                 </Grid>
 
-                <Grid Grid.Column="1">
-                    <WrapPanel Name="ProductsMenu_WrapPanel">
-                        
-                        
-
-                    </WrapPanel>
+                <Grid Grid.Column="1" Name="ProductsGrid">
+                    
+                    <ListBox Background="Transparent" ItemsSource="{Binding Products}" >
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal" >
+                                    <Image Source="{Binding Pimg}" Margin="10" Width="100" Height="50"></Image>
+                                    <TextBlock Text="{Binding Pprice}" Margin="10"  Width="100" FontSize="20" FontWeight="ExtraBlack"  ></TextBlock>
+                                    <TextBlock Text="{Binding Pname}" Margin="10"  Width="100" FontSize="20" FontWeight="ExtraBlack"  ></TextBlock>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
                 </Grid>
             </Grid>
         </Grid>

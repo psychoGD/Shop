@@ -27,7 +27,7 @@
             </TextBox>
 
             <Label Margin="0,20,0,10" Content="Product Price" FontSize="20" Height="50" Width="150"></Label>
-            <TextBox Name="ProductPrice"
+            <TextBox Name="ProductPrice" PreviewTextInput="ProductPrice_PreviewTextInput"
                          Width="250" Height="50" FontSize="20" VerticalContentAlignment="Center"
                          Foreground="Black"
                          >
@@ -38,10 +38,21 @@
                 </TextBox.Resources>
             </TextBox>
 
-            <Label Margin="0,20,0,0" Content="Image Path" FontSize="20" Height="50" Width="150"></Label>
-            <TextBox Name="ProductPath"
+            <Label Margin="0,10,0,0" Content="Image: " FontSize="20" Height="50" Width="100"></Label>
+            <Button Name="OpenFolderBtn"
+                         Width="50" Height="50" FontSize="20" VerticalContentAlignment="Center"
+                         Foreground="Black" Background="White" 
+                    BorderThickness="0" Click="OpenFolderBtn_Click" >
+                <Image Source="folderPic.png"></Image>
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="15"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <TextBox Name="ProductPath" IsEnabled="False"
                          Width="250" Height="50" FontSize="20" VerticalContentAlignment="Center"
-                         Foreground="Black"
+                         Foreground="Black" Background="White"
                          >
                 <TextBox.Resources>
                     <Style TargetType="{x:Type Border}">
@@ -49,6 +60,16 @@
                     </Style>
                 </TextBox.Resources>
             </TextBox>
+            <Button Margin="150,10,0,0" Name="AddProductBtn" Content="Save"
+                         Width="100" Height="30" FontSize="20" VerticalContentAlignment="Center"
+                         Foreground="Black" Background="White" 
+                    BorderThickness="0" Click="AddProductBtn_Click" >
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="15"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
             
         </WrapPanel>
         

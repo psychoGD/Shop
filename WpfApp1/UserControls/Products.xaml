@@ -8,10 +8,10 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid Margin="0,0,629,279" Background="White">
         <Canvas>
-            <Image Name="ProductImage" Canvas.Right="40" Canvas.Bottom="70" Width="90" Height="90" Source="{Binding }"></Image>
-            <Label Name="ProductName" Canvas.Bottom="40" FontSize="15" Width="170" ></Label>
-            <Label Name="ProductPrice" FontSize="12"
-                   Canvas.Bottom="15" FontWeight="Light" Foreground="Gray"></Label>
+            <Image Name="ProductsImage" Canvas.Right="40" Canvas.Bottom="70" Width="90" Height="90" Source="{Binding Pimg}"></Image>
+            <Label Name="ProductsName" Canvas.Bottom="40" FontSize="15" Width="170" Content="{Binding Pname}" ></Label>
+            <Label Name="ProductsPrice" FontSize="12"
+                   Canvas.Bottom="15" FontWeight="Light" Foreground="Gray" Content="{Binding Pprice}"></Label>
         </Canvas>
     </Grid>
 </UserControl>
